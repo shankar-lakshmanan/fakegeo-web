@@ -165,10 +165,11 @@ const config: Config = {
               label: 'Blog',
               to: '/blog',
             },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/fakegeo',
-            },
+            // @TODO - Uncomment this if/when api is made public on github
+            // {
+            //   label: 'GitHub',
+            //   href: 'https://github.com/fakegeo',
+            // },
           ],
         },
       ],
