@@ -125,11 +125,12 @@ const config: Config = {
           type: 'docsVersionDropdown',
           position: 'right',
         },
-        {
-          href: 'https://github.com/fakegeo',
-          label: 'GitHub',
-          position: 'right',
-        },
+        // @TODO - Uncomment this if/when api is made public on github
+        // {
+        //   href: 'https://github.com/fakegeo',
+        //   label: 'GitHub',
+        //   position: 'right',
+        // },
       ],
     },
     footer: {

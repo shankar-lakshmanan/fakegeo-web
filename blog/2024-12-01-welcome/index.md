@@ -11,4 +11,5 @@ Welcome to FakeGeo! This is the first release of the API (v1.0.0) available [her
 Many other features such as generating contour lines, grid polygons and flight path GeoJson
 etc. are planned for future releases.
 
-If you have suggestions for new features, improvements or bugs to report please [create a new issue](https://github.com/fakegeo) in our GitHub repo.
+ <!-- @TODO - Uncomment this if/when api is made public on github -->
+<!-- If you have suggestions for new features, improvements or bugs to report please [create a new issue](https://github.com/fakegeo) in our GitHub repo. -->
