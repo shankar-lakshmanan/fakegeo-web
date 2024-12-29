@@ -27,7 +27,7 @@ const config: Config = {
     fakegeoApiUrl: process.env.FAKEGEO_API_URL,
     googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
     xApiKey: process.env.X_API_KEY,
-    mapboxAccessToken: process.env.MAPBOX_ACCESS_TOKEN
+    mapboxAccessToken: process.env.MAPBOX_ACCESS_TOKEN,
   },
 
   // Even if you don't use internationalization, you can use this field to set
@@ -102,6 +102,7 @@ const config: Config = {
       },
     ] satisfies Redocusaurus.PresetEntry,
   ],
+  
 
   themeConfig: {
     // Replace with your project's social card
@@ -180,6 +181,15 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  plugins: [
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-WK069L6VBC', // Replace with your Google Analytics Measurement ID
+      },
+    ],
+  ]
 };
 
 export default config;

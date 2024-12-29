@@ -34,10 +34,11 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
+  
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Generate abundant fake geospatial data for showcasing, developing, and testing maps.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
