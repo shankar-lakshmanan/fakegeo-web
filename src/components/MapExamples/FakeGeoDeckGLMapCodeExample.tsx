@@ -3,9 +3,8 @@ import CodeBlock from "@theme/CodeBlock";
 
 export const FakeGeoDeckGLMapCodeExample: React.FC = () => {
   const { siteConfig } = useDocusaurusContext();
-  const { fakegeoApiUrl, xApiKey } = siteConfig.customFields as {
+  const { fakegeoApiUrl } = siteConfig.customFields as {
     fakegeoApiUrl: string;
-    xApiKey: string;
   };
 
   return (
@@ -13,7 +12,6 @@ export const FakeGeoDeckGLMapCodeExample: React.FC = () => {
    <CodeBlock language="javascript">
 {`const response = await fetch("${fakegeoApiUrl}/featureCollection/polygons", {
   headers: {
-    'X-API-KEY': '${xApiKey}',
     'Content-Type': 'application/json',
   },
 });

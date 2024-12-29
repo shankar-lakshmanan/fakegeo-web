@@ -23,10 +23,8 @@ const FakeGeoGoogleMap: React.FC = () => {
     // Fetch GeoJSON data from FakeGeo API
     const fetchGeoJson = async () => {
       try {
-        const response = await fetch(`${customFields.fakegeoApiUrl}/prod/feature/point`,  {
+        const response = await fetch(`${customFields.fakegeoApiUrl}/feature/point`,  {
           headers: {
-            //@ts-ignore
-              'X-API-KEY': customFields?.xApiKey,
               'Content-Type': 'application/json'
           }
       });

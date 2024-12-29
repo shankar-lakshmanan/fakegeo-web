@@ -17,10 +17,8 @@ const FakeGeoPigeonMap: React.FC = () => {
     const fetchGeoJsonAndSetData = async () => {
       try {
         // Fetch GeoJSON FeatureCollection from your API
-        const response = await fetch(`${customFields.fakegeoApiUrl}/prod/featureCollection/points`, {
+        const response = await fetch(`${customFields.fakegeoApiUrl}/featureCollection/points`, {
           headers: {
-            //@ts-ignore
-            "X-API-KEY": customFields?.xApiKey,
             "Content-Type": "application/json",
           },
         });

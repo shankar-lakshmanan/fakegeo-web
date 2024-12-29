@@ -29,10 +29,8 @@ const FakeGeoDeckGLMap: React.FC = () => {
     const fetchGeoJsonData = async () => {
       try {
         // Fetch the GeoJSON FeatureCollection from your API
-        const response = await fetch(`${customFields.fakegeoApiUrl}/prod/featureCollection/polygons`, {
+        const response = await fetch(`${customFields.fakegeoApiUrl}/featureCollection/polygons`, {
           headers: {
-            //@ts-ignore
-            "X-API-KEY": customFields?.xApiKey,
             "Content-Type": "application/json",
           },
         });

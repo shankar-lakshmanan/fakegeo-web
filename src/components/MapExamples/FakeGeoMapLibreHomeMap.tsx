@@ -22,8 +22,6 @@ const FakeGeoMapLibreHomeMap: React.FC = () => {
       const response = await fetch(`${customFields.fakegeoApiUrl}${endpoint}`, {
         method: 'POST',
         headers: {
-          //@ts-ignore
-          "X-API-KEY": customFields?.xApiKey,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(body),
@@ -62,9 +60,9 @@ const FakeGeoMapLibreHomeMap: React.FC = () => {
         };
 
         const [linesGeoJson, pointsGeoJson, polygonsGeoJson] = await Promise.all([
-          fetchGeoJson("/prod/featureCollection/lines/properties", body),
-          fetchGeoJson("/prod/featureCollection/points/properties", body),
-          fetchGeoJson("/prod/featureCollection/polygons/properties", body),
+          fetchGeoJson("/featureCollection/lines/properties", body),
+          fetchGeoJson("/featureCollection/points/properties", body),
+          fetchGeoJson("/featureCollection/polygons/properties", body),
         ]);
 
         if (mapRef.current) {

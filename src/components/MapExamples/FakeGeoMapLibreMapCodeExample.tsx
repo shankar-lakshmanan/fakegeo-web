@@ -3,9 +3,8 @@ import CodeBlock from "@theme/CodeBlock";
 
 export const FakeGeoMapLibreMapCodeExample: React.FC = () => {
   const { siteConfig } = useDocusaurusContext();
-  const { fakegeoApiUrl, xApiKey } = siteConfig.customFields as {
+  const { fakegeoApiUrl } = siteConfig.customFields as {
     fakegeoApiUrl: string;
-    xApiKey: string;
   };
 
   return (
@@ -14,7 +13,6 @@ export const FakeGeoMapLibreMapCodeExample: React.FC = () => {
 {`const response = await fetch("${fakegeoApiUrl}/featureCollection/lines", {
   method: 'POST',
   headers: {
-    'X-API-KEY': '${xApiKey}',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({"limit": 20, "bbox": [-56.250000,-22.593726,43.769531,37.996163]})

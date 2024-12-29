@@ -20,10 +20,8 @@ const FakeGeoMapboxMap: React.FC = () => {
     // Fetch GeoJSON data from FakeGeo API
     const fetchGeoJson = async () => {
       try {
-        const response = await fetch(`${customFields.fakegeoApiUrl}/prod/feature/line`, {
+        const response = await fetch(`${customFields.fakegeoApiUrl}/feature/line`, {
           headers: {
-            //@ts-ignore
-            "X-API-KEY": customFields.xApiKey,
             "Content-Type": "application/json",
           },
         });

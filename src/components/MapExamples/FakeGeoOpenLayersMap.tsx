@@ -50,11 +50,9 @@ const OpenLayersMap: React.FC = () => {
     const fetchGeoJsonAndAddToMap = async () => {
       try {
         // Fetch the GeoJSON FeatureCollection from your API
-        const response = await fetch(`${customFields.fakegeoApiUrl}/prod/featureCollection/points`, {
+        const response = await fetch(`${customFields.fakegeoApiUrl}/featureCollection/points`, {
           method: 'POST',
           headers: {
-            //@ts-ignore
-            "X-API-KEY": customFields?.xApiKey,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({"limit": 5})

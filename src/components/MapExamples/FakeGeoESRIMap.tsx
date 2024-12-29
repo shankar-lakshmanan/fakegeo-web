@@ -14,10 +14,8 @@ const FakeGeoESRIMap: React.FC = () => {
     // Fetch GeoJSON data from FakeGeo API with custom headers
     const fetchGeoJsonWithHeaders = async () => {
       try {
-        const response = await fetch(`${customFields.fakegeoApiUrl}/prod/feature/line`, {
+        const response = await fetch(`${customFields.fakegeoApiUrl}/feature/line`, {
           headers: {
-            //@ts-ignore
-            "X-API-KEY": customFields.xApiKey,  // Add your custom header here
             "Content-Type": "application/json",
           },
         });
