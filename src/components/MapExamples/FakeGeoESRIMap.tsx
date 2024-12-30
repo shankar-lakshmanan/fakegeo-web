@@ -1,9 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "@arcgis/core/assets/esri/themes/light/main.css";
-import  WebMap  from "@arcgis/core/WebMap";
-import  MapView  from "@arcgis/core/views/MapView";
-import  GeoJSONLayer  from "@arcgis/core/layers/GeoJSONLayer";
-import  useDocusaurusContext  from '@docusaurus/useDocusaurusContext';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const FakeGeoESRIMap: React.FC = () => {
   const mapDivRef = useRef<HTMLDivElement | null>(null);
@@ -32,38 +29,46 @@ const FakeGeoESRIMap: React.FC = () => {
 
   useEffect(() => {
     if (mapDivRef.current && geoJsonData) {
-      // Create a temporary GeoJSON file by converting the GeoJSON data into a Blob
-      const geoJsonBlob = new Blob([JSON.stringify(geoJsonData)], { type: 'application/json' });
-      const geoJsonUrl = URL.createObjectURL(geoJsonBlob); // Create a URL for the Blob
+      // Dynamically import only the necessary modules
+      import('@arcgis/core/WebMap').then(({ default: WebMap }) => {
+        import('@arcgis/core/views/MapView').then(({ default: MapView }) => {
+          import('@arcgis/core/layers/GeoJSONLayer').then(({ default: GeoJSONLayer }) => {
 
-      const geoJsonLayer = new GeoJSONLayer({
-        url: geoJsonUrl, // Use the Blob URL as the layer URL
-      });
+            // Create a temporary GeoJSON file by converting the GeoJSON data into a Blob
+            const geoJsonBlob = new Blob([JSON.stringify(geoJsonData)], { type: 'application/json' });
+            const geoJsonUrl = URL.createObjectURL(geoJsonBlob); // Create a URL for the Blob
 
-      const map = new WebMap({
-        basemap: "gray-vector"
-      });
+            const geoJsonLayer = new GeoJSONLayer({
+              url: geoJsonUrl, // Use the Blob URL as the layer URL
+            });
 
-      const view = new MapView({
-        container: mapDivRef.current,
-        map: map,
-        center: [-101.278818, 40.816337], // Center coordinates for the map
-        zoom: 5, // Zoom level
-      });
+            const map = new WebMap({
+              basemap: "gray-vector"
+            });
 
-      // Add GeoJSON Layer to the map
-      view.when(() => {
-        map.add(geoJsonLayer);
-        geoJsonLayer.when(() => {
-          view.goTo(geoJsonLayer.fullExtent);
-        }).catch((err) => {
-          console.error("Error loading GeoJSON layer:", err);
+            const view = new MapView({
+              container: mapDivRef.current,
+              map: map,
+              center: [-101.278818, 40.816337], // Center coordinates for the map
+              zoom: 5, // Zoom level
+            });
+
+            // Add GeoJSON Layer to the map
+            view.when(() => {
+              map.add(geoJsonLayer);
+              geoJsonLayer.when(() => {
+                view.goTo(geoJsonLayer.fullExtent);
+              }).catch((err) => {
+                console.error("Error loading GeoJSON layer:", err);
+              });
+            });
+
+            return () => {
+              view.destroy();
+            };
+          });
         });
       });
-
-      return () => {
-        view.destroy();
-      };
     }
   }, [geoJsonData, customFields]);
 
