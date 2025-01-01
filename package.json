@@ -35,7 +35,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-map-gl": "^7.1.8",
-    "redocusaurus": "^2.1.1"
+    "swagger-ui": "^5.18.2",
+    "swagger-ui-react": "^5.18.2"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",

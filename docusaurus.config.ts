@@ -1,7 +1,6 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import type * as Redocusaurus from 'redocusaurus';
 import 'dotenv/config';
 
 const config: Config = {
@@ -69,38 +68,7 @@ const config: Config = {
         },
       } satisfies Preset.Options,
     ],
-    // Redocusaurus config
-    [
-      'redocusaurus',
-      {
-        // Plugin Options for loading OpenAPI files
-        specs: [
-          // Pass it a path to a local OpenAPI YAML file
-          {
-            // Redocusaurus will automatically bundle your spec into a single file during the build
-            spec: 'swagger-output.json',
-            route: '/api/',
-          },
-          // You can also pass it a OpenAPI spec URL
-          // {
-          //   spec: 'https://redocly.github.io/redoc/openapi.yaml',
-          //   route: '/openapi/',
-          // },
-        ],
-        // Theme Options for modifying how redoc renders them
-        theme: {
-          // Change with your site colors
-          primaryColor: '#9b59b6',
-        },
-        //@ts-ignore
-        config: {
-          expandResponses: 'all', // Expand responses for status codes 200 and 201
-          scrollYOffset: 60,          // Adjust scroll offset for fixed headers
-          // Include request samples in multiple languages
-          requestSamples: ['curl', 'http', 'python', 'javascript'],
-        }
-      },
-    ] satisfies Redocusaurus.PresetEntry,
+    
   ],
   
 

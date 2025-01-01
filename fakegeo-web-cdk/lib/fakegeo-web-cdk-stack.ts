@@ -29,7 +29,7 @@ export class FakegeoWebCdkStack extends cdk.Stack {
       validation: certificatemanager.CertificateValidation.fromDns(hostedZone),
     });
 
-    // CloudFront Distribution
+
     // CloudFront Distribution
 const distribution = new cloudfront.CloudFrontWebDistribution(this, 'WebsiteDistribution', {
   originConfigs: [
@@ -84,9 +84,11 @@ const distribution = new cloudfront.CloudFrontWebDistribution(this, 'WebsiteDist
   });
 
     // Deploy Website Content
-    new s3deploy.BucketDeployment(this, 'DeployWebsite', {
+    new s3deploy.BucketDeployment(this, `DeployWebsite-${Date.now()}`, {
       sources: [s3deploy.Source.asset('../build')], // Your Docusaurus build directory
       destinationBucket: websiteBucket,
+      distribution: distribution, // Add the CloudFront distribution
+      distributionPaths: ['/*'], // Invalidate all paths
     });
 
   }
