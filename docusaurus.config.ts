@@ -6,7 +6,7 @@ import 'dotenv/config';
 
 const config: Config = {
   title: 'FakeGeo',
-  tagline: 'Generate abundant fake geospatial data for showcasing, developing, and testing maps.',
+  tagline: 'Create rich, realistic geospatial data for showcasing, developing, and testing map applications.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -186,7 +186,7 @@ const config: Config = {
     [
       '@docusaurus/plugin-google-gtag',
       {
-        trackingID: 'G-WK069L6VBC', // Replace with your Google Analytics Measurement ID
+        trackingID: 'G-Y2164V8WHS', // Replace with your Google Analytics Measurement ID
       },
     ],
   ]
