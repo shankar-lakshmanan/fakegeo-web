@@ -1,0 +1,11 @@
+# robots.txt for FakeGeo Docusaurus Site
+
+User-agent: *
+# Allow everything (default behavior)
+Disallow:
+
+# Link to your sitemap
+Sitemap: https://fakegeo.com/sitemap.xml
+
+# Crawl delay to reduce server load (optional, not all bots respect it)
+Crawl-delay: 10

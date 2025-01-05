@@ -37,7 +37,7 @@ export default function Home(): JSX.Element {
   
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="Create rich, realistic geospatial data for showcasing, developing, and testing map applications.">
       <HomepageHeader />
       <main>
