@@ -10,7 +10,7 @@ export const FakeGeoLeafletMapExample: React.FC = () => {
   return (
     <pre>
    <CodeBlock language="javascript">
-{`const response = await fetch("${fakegeoApiUrl}/polygon/random/properties", {
+{`const response = await fetch("${fakegeoApiUrl}/feature/polygon/random/properties", {
   headers: {
     'Content-Type': 'application/json',
   },
